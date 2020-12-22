@@ -169,7 +169,11 @@ $(function () {
         slidesToScroll: 1,
         fade: true,
         arrows: false,
-        dots: true
+        dots: true,
+        customPaging: function (slick, index) {
+            var targetImage = slick.$slides.eq(index).find('img').attr('src');
+            return '<img src=" ' + targetImage + ' "/>';
+        }
     });
 
     $(".slickPrev").on("click", function (event) {
