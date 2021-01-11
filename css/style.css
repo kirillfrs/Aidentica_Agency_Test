@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   color: #000;
   background-color: #ffffff;
@@ -159,7 +159,6 @@ p {
           justify-content: center;
   width: 100%;
   padding: 0;
-  margin: 0;
   list-style: none;
   position: absolute;
   bottom: -.6rem;
@@ -192,15 +191,16 @@ p {
   outline: 0;
 }
 
-.modal-work__preview .slick-dots {
-  bottom: 1.4rem;
+.reviews__text .slick-dots {
+  bottom: -1.6rem;
+  margin: 0;
 }
 
 .modal-work__preview .slick-dots li {
   list-style: none;
   display: inline-block;
-  max-width: 112px;
-  max-height: 56px;
+  max-width: 89.6px;
+  max-height: 89.6px;
   margin: 5px;
 }
 
@@ -252,8 +252,21 @@ p {
   height: 57px;
 }
 
+.user--mob {
+  display: none;
+}
+
+.user--mob img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
 .user__content {
   padding-left: 9px;
+}
+
+.user__content--brand {
+  margin: auto;
 }
 
 .user__name {
@@ -362,6 +375,7 @@ p {
   bottom: 5px;
   right: 0;
   z-index: 1;
+  height: 487px;
 }
 
 .social {
@@ -559,7 +573,7 @@ p {
   position: absolute;
   bottom: 0;
   z-index: 2;
-  max-height: 450px;
+  max-height: 440px;
 }
 
 .about__photo:before {
@@ -608,20 +622,19 @@ p {
 .reviews {
   padding: 4.6rem 0;
   position: relative;
-  background: #332f30 url("../img/reviews-bg.png") center no-repeat;
+  background: #010101 url("../img/reviews-bg.png") center no-repeat;
   margin-bottom: 10rem;
 }
 
 .reviews__item {
   width: 100%;
-  max-width: 830px;
   margin: 0 auto;
 }
 
 .reviews__text {
   font-size: .94rem;
   line-height: 2.2;
-  color: #fff;
+  color: #000;
   text-align: center;
 }
 
@@ -666,6 +679,20 @@ p {
 
 .reviews__star--unactive {
   opacity: .3;
+}
+
+.reviews__comment img {
+  max-width: 100%;
+}
+
+.reviews__text .slick-slide img {
+  height: 250px;
+}
+
+.reviews__title {
+  padding-bottom: 2.6rem;
+  text-align: center;
+  color: #fff;
 }
 
 .news {
@@ -976,6 +1003,7 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 700px;
 }
 
 .modal-work__preview {
@@ -994,18 +1022,6 @@ p {
           transform: translate3d(-50%, -50%, 0);
 }
 
-.modal-work__photo-small {
-  width: 100px;
-  height: 100px;
-  max-width: 100%;
-}
-
-.modal-work__preview-small {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  justify-self: flex-start;
-}
-
 .modal-work__content {
   width: 35%;
   padding: 3.4rem 6.6rem 1rem 1.73rem;
@@ -1018,7 +1034,7 @@ p {
 
 .modal-work__title {
   margin-bottom: .2rem;
-  font-size: 2.12rem;
+  font-size: 2rem;
   color: #000;
   font-weight: 700;
   text-transform: uppercase;
@@ -1053,14 +1069,18 @@ p {
 
 .modal-work__text {
   margin-bottom: 8.66rem;
-  font-size: .8rem;
+  font-size: .85rem;
   line-height: 2;
   color: #6a696b;
   font-weight: 300;
 }
 
+.modal-work__table {
+  margin-bottom: 20px;
+}
+
 .modal-work__text-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 2;
   color: #2b2a2c;
   font-weight: 700;
@@ -1353,9 +1373,25 @@ p {
   .about__bigtitle {
     font-size: 4rem;
   }
+
+  .modal-work {
+    height: auto;
+    min-height: 700px;
+  }
 }
 
 @media (max-width: 991px) {
+  .header {
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
   .nav {
     width: 100%;
     height: auto;
@@ -1383,9 +1419,12 @@ p {
     padding: .5rem 1rem;
   }
 
+  .nav__link {
+    margin-left: 1rem;
+  }
+
   .intro__inner {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 8rem;
     background: url("../img/symbols.png") right bottom no-repeat;
     background-size: 400px auto;
   }
@@ -1399,11 +1438,9 @@ p {
   }
 
   .intro__photo {
-    width: 350px;
     position: absolute;
-    right: -20px;
     bottom: 0px;
-    max-height: 350px;
+    max-height: 400px;
   }
 
   .btn {
@@ -1490,6 +1527,25 @@ p {
     margin: 0 .5rem .5rem;
   }
 
+  .modal-work {
+    height: auto;
+    min-height: 480px;
+  }
+
+  .modal-work__content {
+    padding: 1rem 0rem 0rem 1rem;
+  }
+
+  .modal-work__text {
+    font-size: .8rem;
+    line-height: 1.5;
+    margin-bottom: 3.66rem;
+  }
+
+  .modal-work__table {
+    margin-bottom: 10px;
+  }
+
   .burger {
     display: block;
   }
@@ -1506,19 +1562,8 @@ p {
     bottom: -.5rem;
   }
 
-  .header {
-    background-color: #fff;
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
-
   .nav__link:nth-child(4)::after {
-    bottom: 4px;
+    bottom: 3px;
   }
 
   .intro {
@@ -1526,6 +1571,8 @@ p {
   }
 
   .intro__inner {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     background: url("../img/symbols.png") right bottom no-repeat;
     background-size: 300px auto;
   }
@@ -1535,11 +1582,11 @@ p {
   }
 
   .intro__photo {
-    width: 350px;
+    width: 300px;
   }
 
   .works__nav-link {
-    margin: 0 .7rem;
+    margin: 0 0.7rem;
     white-space: nowrap;
   }
 
@@ -1574,13 +1621,18 @@ p {
     height: 30px;
   }
 
+  .modal-work {
+    height: auto;
+    min-height: 700px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
   .modal-work__preview {
     width: 100%;
     height: 250px;
-    position: absolute;
-    top: 295px;
-    left: 0;
-    z-index: 1;
   }
 
   .modal-work__photo {
@@ -1595,11 +1647,12 @@ p {
     z-index: 0;
   }
 
-  .modal-work__client {
-    margin-bottom: 20rem;
+  .modal-work__title {
+    font-size: 1.8rem;
   }
 
   .modal-work__text {
+    font-size: .8rem;
     margin-bottom: 1.66rem;
   }
 
@@ -1615,6 +1668,16 @@ p {
 }
 
 @media (max-width: 565px) {
+  .user {
+    display: none;
+  }
+
+  .user--mob {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .intro__content {
     width: 100%;
   }
@@ -1656,8 +1719,9 @@ p {
   }
 }
 
-@media (max-width: 330px) {
-  .modal-work__preview {
-    top: 330px;
+@media (max-width: 325px) {
+  .works__nav-link {
+    white-space: normal;
+    font-size: .9rem;
   }
 }

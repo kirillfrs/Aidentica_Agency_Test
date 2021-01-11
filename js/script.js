@@ -39,67 +39,6 @@ $(function () {
     =====================*/
     const modalCall = $("[data-modal]");
     const modalClose = $("[data-close]");
-    // const portfolio = document.querySelector('.portfolio');
-    // const portfolioColLast = document.querySelectorAll('.portfolio__col.last');
-
-
-    // const workNav = document.querySelector('.works__nav');
-    // let count = 0;
-    // let count2 = 0;
-
-    // const randomNumber = () => {
-    //     return Math.floor(Math.random() * 2);
-    // };
-
-    // const activeLastCard = (number) => {
-    //     portfolioColLast[number].classList.add('hide');
-    // };
-    // activeLastCard(randomNumber());
-
-    // const onClickNav = (evt) => {
-    //     const target = evt.target;
-    //     if (target && target.getAttribute('data-filter') == 'website' && count < 1) {
-    //         createElementCard('website','img/landingZaglushka.jpg');
-    //         createElementCard('website','img/landingZaglushka1.jpg');
-    //         count = +1;
-    //     }
-    //     if (target && target.getAttribute('data-filter') == 'interaction' && count2 < 1) {
-    //         createElementCard('interaction','img/landingZaglushka.jpg');
-    //         count2 = +1;
-    //     }
-    //     if (target && target.getAttribute('data-filter') == 'all' || target.getAttribute('data-filter') == 'logo') {
-    //         if (target.getAttribute('data-filter') == 'all') {
-    //             activeLastCard(randomNumber());
-    //         }
-    //         const del = document.querySelectorAll('.created');
-    //         del.forEach(item => item.remove());
-    //         count = 0;
-    //         count2 = 0;
-    //     }
-    // };
-
-    // workNav.addEventListener('click', onClickNav);
-
-
-    // const createElementCard = (category,img) => {
-    //     const element = document.createElement('div');
-    //     element.classList.add('portfolio__col');
-    //     element.setAttribute('data-cat', category);
-    //     element.innerHTML =
-    //         ` <div class="work">
-    //     <img class="work__image" src="${img}" alt="example of design">
-    //     <div class="work__content">
-    //       <div class="work__cat">category: ${category}</div>
-    //       <div class="work__title">
-    //         в разработке
-    //         <time class="work__date" datetime="2019-11-22 19:00">soon</time>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>`;
-    //     element.classList.add('created');
-    //     portfolio.append(element);
-    // };
 
 
 
@@ -193,22 +132,35 @@ $(function () {
     });
 
     worksSlider2.slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
+
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        edgeFriction: 0.05,
         arrows: false,
         dots: true,
-        autoplay: true,
-        autoplaySpeed: 10000,
-        asNavFor: worksSlider3
+
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
     });
 
-    worksSlider3.slick({
-        arrows: false,
-        dots: false,
-        asNavFor: worksSlider2
-    });
+
 
 
 
@@ -217,6 +169,7 @@ $(function () {
 
     const navToggle = $("#navToggle");
     const nav = $("#nav");
+    const navigation = document.querySelector('#nav');
 
     navToggle.on("click", function (event) {
         event.preventDefault();
@@ -224,6 +177,39 @@ $(function () {
         nav.toggleClass("show");
     });
 
-
+    navigation.addEventListener('click', (evt) => {
+        const target = evt.target;
+        if (target && target.classList.contains('nav__link')) {
+            navigation.classList.remove('show');
+        }
+    });
 });
+const modalCloseImg = document.querySelectorAll('.modal__close-img--white');
+
+
+//  cross white
+
+const data = {
+    first: 'img/modal-close.svg',
+    second: 'img/modal-close1.svg'
+};
+
+
+
+const chooseCross = () => {
+    if (document.body.clientWidth < 766) {
+        modalCloseImg.forEach(cross => {
+            cross.src = data.second;
+            cross.previousSibling.setAttribute('srcset', data.second);
+        });
+    } else {
+        modalCloseImg.forEach(cross => {
+            cross.src = data.first;
+            cross.previousSibling.setAttribute('srcset', data.first);
+        });
+    }
+};
+chooseCross();
+
+setInterval(chooseCross, 1000);
 ;
