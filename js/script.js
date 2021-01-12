@@ -160,8 +160,11 @@ $(function () {
         ]
     });
 
-
-
+    worksSlider3.slick({
+        arrows: false,
+        autoplay:true,
+        mobileFirst:true,
+    });
 
 
     /* Mobile nav
