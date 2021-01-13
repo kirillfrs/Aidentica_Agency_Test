@@ -563,18 +563,6 @@ p {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 1090px;
-  position: relative;
-}
-
-.about__inner::before {
-  content: "";
-  background: url("../img/plane213.png") repeat-y center;
-  background-size: 220px;
-  width: 300px;
-  height: 453px;
-  position: absolute;
-  top: 0%;
-  right: 45%;
 }
 
 .about__photo {
@@ -1469,10 +1457,6 @@ p {
 
   .about {
     margin: 4rem 0;
-  }
-
-  .about__inner::before {
-    display: none;
   }
 
   .about__photo {
